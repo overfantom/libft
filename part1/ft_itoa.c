@@ -1,43 +1,62 @@
 #include "libft.h"
 
-char *ft_itoa(int n)
+int	ft_numlen(long nbr)
 {
-    long nbr = n;
-    int i = 0;
-    long holder;
-    int count;
-    char *p;
-    int div = 1;
-    int flag = 0;
-    if(nbr < 0)
-    {
-        flag = 1;
-        nbr *= -1;
-    }
-    holder = nbr;
-    while(holder > 9)
-    {
-        holder /= 10;
-        count++;
-        div *= 10;
-    }
-    p = malloc((count+flag+1) * sizeof(char));
-    if(!p)
-        return NULL;
-    if(flag == 1)
-    {
-        p[i]='-';
-        i++;
-    }
-    while(i < count + flag)
-    {
-        p[i] = (nbr / div) + 48;
-        nbr %= div; 
-        div /= 10;
-        i++;
-    }
-    p[i++]=(nbr / div) + 48;
-    p[i]='\0';
-    return p;
+	long	tmp;
+	int		len;
 
+	tmp = nbr;
+	len = 1;
+	while (tmp > 9)
+	{
+		tmp /= 10;
+		len++;
+	}
+	return (len);
+}
+
+void	ft_fill(char *str, long nbr, int len)
+{
+	long	div;
+	int		i;
+
+	div = 1;
+	i = 1;
+	while (i < len)
+	{
+		div *= 10;
+		i++;
+	}
+	i = 0;
+	while (div > 0)
+	{
+		str[i++] = (nbr / div) + '0';
+		nbr %= div;
+		div /= 10;
+	}
+	str[i] = '\0';
+}
+
+char	*ft_itoa(int n)
+{
+	long	nbr;
+	int		len;
+	int		sign;
+	char	*str;
+
+	nbr = n;
+	sign = 0;
+	if (nbr < 0)
+	{
+		sign = 1;
+		nbr *= -1;
+	}
+	len = ft_numlen(nbr);
+	str = malloc(len + sign + 1);
+	if (!str)
+		return (NULL);
+	if (sign)
+		str[0] = '-';
+	ft_fill(str + sign, nbr, len);
+	return (str);
 }
