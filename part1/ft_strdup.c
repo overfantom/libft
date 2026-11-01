@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
 	size_t	len;
 	char	*p;
@@ -21,6 +21,6 @@ char	*strdup(const char *s)
 	p = malloc((len + 1) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
-	ft_memcpy((void *) p, s, (len + 1));
+	ft_memcpy(p, s, len + 1);
 	return (p);
 }
