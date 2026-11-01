@@ -1,4 +1,3 @@
-```c
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -30,6 +29,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strdup(const char *s);
+int     ft_atoi(const char *nptr);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
