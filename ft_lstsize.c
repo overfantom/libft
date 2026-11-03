@@ -6,15 +6,15 @@
 /*   By: admobhid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 08:09:16 by admobhid          #+#    #+#             */
-/*   Updated: 2026/11/02 08:09:16 by admobhid         ###   ########.fr       */
+/*   Updated: 2026/11/03 19:53:13 by admobhid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+unsigned int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (lst)
